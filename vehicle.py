@@ -32,7 +32,14 @@ class Vehicle(ABC):
 #setter for rental price         
     def set_rental_price(self,rent):
         self.__rental_price=rent
-    
+
+#abstractmethod    
     @abstractmethod
     def calculate_trip_cost(self,distance):
         pass
+
+#eq function
+
+    def __eq__(self,other):
+        return self.vehicle_id==other.vehicle_id
+    

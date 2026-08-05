@@ -6,9 +6,14 @@ class Fleet:
             self.hubs[hub]=[]
     def add_vehicles(self,hub,vehicle):
         if hub in self.hubs:
-            if vehicle not in self.hubs[hub]:
-                self.hubs[hub].append(vehicle)
-            else:
+            exsisting_vehicle=[v for v in self.hubs[hub] if v==vehicle]
+            if exsisting_vehicle:
                 print("Vehicle already exist")
+            else:
+                self.hubs[hub].append(vehicle)
+                
+            
         else:
-            print("NO hub found")
+            print("Hub not exist")
+
+        
