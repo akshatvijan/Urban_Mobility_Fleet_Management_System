@@ -70,23 +70,7 @@ class Fleet:
                 category['scooter'].append(v)
         print(category)
 
-    def Fleet_Analytics(self):
-        status_vehicle=[]
-        avail=0
-        ontrp=0
-        notavail=0
-        for hub in self.hubs:
-            status_vehicle.extend(hub.vehicles)
-        for v in status_vehicle:
-            if v.get_maintenance_status()=="Available":
-                avail+=1
-            elif v.get_maintenance_status()=="On Trip":
-                ontrp+=1
-            else:
-                notavail+=1
-        print("Total number of available",avail)
-        print("Total number of on trip",ontrp)
-        print("Total number of under maintainence",notavail)
+    
 
 
             
