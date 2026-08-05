@@ -18,4 +18,6 @@ if __name__=="__main__":
     f1.search_hub("Airport")
     # f1.show_all_hubs()
     # f1.search_battery()
+    category=f1.categorize_vehicle()
+    print(category)
     

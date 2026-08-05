@@ -1,3 +1,5 @@
+from electricCar import electricCar
+from electricScooter import electricScooter
 class Fleet:
     def __init__(self):
         self.hubs={}
@@ -37,6 +39,21 @@ class Fleet:
         for v in battery_80:
             
             print(v,end=' ')
+
+    def categorize_vehicle(self):
+        category={
+            'Car':[],
+            'Scooter':[]
+        }
+        for hub in self.hubs:
+            for v in self.hubs[hub]:
+                if isinstance(v,electricCar):
+                    category['Car'].append(v)
+                elif isinstance(v,electricScooter):
+                    category['Scooter'].append(v)
+
+        return category
+
 
 
 
