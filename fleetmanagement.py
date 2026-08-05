@@ -1,64 +1,94 @@
+from hub import Hub
 from electricCar import electricCar
 from electricScooter import electricScooter
 class Fleet:
     def __init__(self):
-        self.hubs={}
-    def add_hub(self,hub):
-        if hub not in self.hubs:
-            self.hubs[hub]=[]
-    def add_vehicles(self,hub,vehicle):
-        if hub in self.hubs:
-            exsisting_vehicle=[v for v in self.hubs[hub] if v==vehicle]
-            if exsisting_vehicle:
-                print("Vehicle already exist")
-            else:
-                self.hubs[hub].append(vehicle)
-                
-            
-        else:
-            print("Hub not exist")
-
-
-    def search_hub(self,hub):
-        if hub in self.hubs:
-            for v in self.hubs[hub]:
-                print(v)
-        else:
-            print("Hub not found")
-    
-    def show_all_hubs(self):
-       for hub,value in self.hubs.items():
-        print(f"{hub}  {value}")
- 
-    def search_battery(self):
-        list_vehicle=[]
-        for v in self.hubs.values():
-            list_vehicle.extend(v)
-        battery_80 = list(filter(lambda x: x.get_battery_percentage() > 80, list_vehicle))
-        print("vehicle with battery greater than 80 ",)
-        for v in battery_80:
-            
-            print(v,end=' ')
-
-    def categorize_vehicle(self):
-        category={
-            'Car':[],
-            'Scooter':[]
-        }
+        self.hubs=[]
+    def add_hub(self,hub_name):
         for hub in self.hubs:
-            for v in self.hubs[hub]:
-                if isinstance(v,electricCar):
-                    category['Car'].append(v)
-                elif isinstance(v,electricScooter):
-                    category['Scooter'].append(v)
+            if hub.hub_name==hub_name:
+                print("Hub already exist")
+                return
+        new_hub=Hub(hub_name)
+        self.hubs.append(new_hub)
 
-        return category
-
-
-
-
-
+    def add_vehicle(self,hub_name,vehicle):
+        for hub in self.hubs:
+            if hub.hub_name==hub_name:
+               existing=[x for x in hub.vehicles if x==vehicle]
+               if existing:
+                print("vehicle already exist")
+                return
+               else:
+                hub.vehicles.append(vehicle)
+                return
         
+             
+                
+        print("Hub not found")
 
+    def show_hubs(self):
+        for hub in self.hubs:
+            print(hub.hub_name)
+    def show_vehicles(self,hub_name):
+        for hub in self.hubs:
+            if hub.hub_name==hub_name:
+                for v in hub.vehicles:
+                    print(v)
+                return
+        print("hub not found")
+
+    def search_hub(self,hub_name):
+        for hub in self.hubs:
+            if hub.hub_name==hub_name:
+                for v in hub.vehicles:
+                    print(v)
+                return
+        print("hub not found")
+
+    def search_battery(self):
+        vehicle_list=[]
+        for hub in self.hubs:
+            vehicle_list.extend(hub.vehicles)
+        battery_80=list(filter(lambda x: x.get_battery_percentage()>80,vehicle_list))
+        for b in battery_80:
+            print(b)
+
+    def category(self):
+        category={
+            'car':[],
+            'scooter':[]
+
+        }
+        vehicle_list=[]
+        for hub in self.hubs:
+            vehicle_list.extend(hub.vehicles)
+        for v in vehicle_list:
+            if isinstance(v,electricCar):
+                category['car'].append(v)
+            elif isinstance(v,electricScooter):
+                category['scooter'].append(v)
+        print(category)
+
+    def Fleet_Analytics(self):
+        status_vehicle=[]
+        avail=0
+        ontrp=0
+        notavail=0
+        for hub in self.hubs:
+            status_vehicle.extend(hub.vehicles)
+        for v in status_vehicle:
+            if v.get_maintenance_status()=="Available":
+                avail+=1
+            elif v.get_maintenance_status()=="On Trip":
+                ontrp+=1
+            else:
+                notavail+=1
+        print("Total number of available",avail)
+        print("Total number of on trip",ontrp)
+        print("Total number of under maintainence",notavail)
+
+
+            
 
         
