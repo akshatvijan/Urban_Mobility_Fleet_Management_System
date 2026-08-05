@@ -9,6 +9,7 @@ if __name__=="__main__":
     scooter3=electricScooter(11,"cs203",81,100)
     f1=Fleet()
     f1.add_hub("Airport")
+<<<<<<< HEAD
     f1.add_hub("Bus Stand")
     f1.add_vehicles("Airport",car1)
     f1.add_vehicles("Bus Stand",scooter1)
@@ -17,6 +18,15 @@ if __name__=="__main__":
     print(f1.hubs)
     
     
+=======
+    f1.add_hub("Bus-Stand")
+    f1.add_vehicle("Airport",car1)
+    f1.add_vehicle("Bus-Stand",scooter1)
+    f1.add_vehicle("Bus-Stand",scooter2)
+    f1.show_hubs()
+    f1.show_vehicles("Airport")
+
+>>>>>>> uc6
   
    
 
