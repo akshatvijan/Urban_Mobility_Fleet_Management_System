@@ -1,6 +1,7 @@
 from hub import Hub
 from electricCar import electricCar
 from electricScooter import electricScooter
+from collections import defaultdict
 class Fleet:
     def __init__(self):
         self.hubs=[]
@@ -55,11 +56,7 @@ class Fleet:
             print(b)
 
     def category(self):
-        category={
-            'car':[],
-            'scooter':[]
-
-        }
+        category=defaultdict(list)
         vehicle_list=[]
         for hub in self.hubs:
             vehicle_list.extend(hub.vehicles)
