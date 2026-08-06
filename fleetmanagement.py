@@ -88,6 +88,17 @@ class Fleet:
         print("Total number of on trip",ontrp)
         print("Total number of under maintainence",notavail)
 
+    def alphabatic_sorting(self):
+        for hub in self.hubs:
+            hub.vehicles.sort(key=lambda x:x.model)
+        for hub in self.hubs:
+            print(hub.hub_name, "Vehicles are (sorted)")
+            for v in hub.vehicles:
+               
+                print(v)
+        
+        
+
 
             
 

@@ -27,6 +27,7 @@ if __name__=="__main__":
     f1.search_battery()
     f1.category()
     f1.Fleet_Analytics()
+    f1.alphabatic_sorting()
 
  
   
