@@ -5,6 +5,8 @@ from collections import defaultdict
 class Fleet:
     def __init__(self):
         self.hubs=[]
+
+
     def add_hub(self,hub_name):
         for hub in self.hubs:
             if hub.hub_name==hub_name:
@@ -12,6 +14,7 @@ class Fleet:
                 return
         new_hub=Hub(hub_name)
         self.hubs.append(new_hub)
+
 
     def add_vehicle(self,hub_name,vehicle):
         for hub in self.hubs:
@@ -22,17 +25,15 @@ class Fleet:
                 return
                else:
                 hub.vehicles.append(vehicle)
-                return
-        
-             
-                
+                return      
         print("Hub not found")
+
 
     def show_hubs(self):
         for hub in self.hubs:
             print(hub.hub_name)
 
-            
+
     def show_vehicles(self,hub_name):
         for hub in self.hubs:
             if hub.hub_name==hub_name:
@@ -40,6 +41,7 @@ class Fleet:
                     print(v)
                 return
         print("hub not found")
+
 
     def search_hub(self,hub_name):
         for hub in self.hubs:
@@ -49,6 +51,7 @@ class Fleet:
                 return
         print("hub not found")
 
+
     def search_battery(self):
         vehicle_list=[]
         for hub in self.hubs:
@@ -56,6 +59,7 @@ class Fleet:
         battery_80=list(filter(lambda x: x.get_battery_percentage()>80,vehicle_list))
         for b in battery_80:
             print(b)
+
 
     def category(self):
         category=defaultdict(list)
@@ -68,6 +72,7 @@ class Fleet:
             elif isinstance(v,electricScooter):
                 category['scooter'].append(v)
         print(category)
+
 
     def Fleet_Analytics(self):
         status_vehicle=[]
@@ -87,6 +92,7 @@ class Fleet:
         print("Total number of on trip",ontrp)
         print("Total number of under maintainence",notavail)
 
+
     def alphabatic_sorting(self):
         for hub in self.hubs:
             hub.vehicles.sort(key=lambda x:x.model)
@@ -95,7 +101,36 @@ class Fleet:
             for v in hub.vehicles:
                
                 print(v)
+
+
+    def advance_sorting(self,choice):
+        if(choice=='battery'):
+            self.sort_battery()
+        else:
+            self.fare_price()
+
+
+    def sort_battery(self):
+        print("Sorted on basis of battery")
+        for hub in self.hubs:
+            hub.vehicles.sort(key=lambda x:x.get_battery_percentage(),reverse=True)
+        for hub in self.hubs:
+            print(hub.hub_name)
+            for v in hub.vehicles:
+                print(v)
+
+
+    def fare_price(self):
         
+        print("Sorted on basis of fare")
+        for hub in self.hubs:
+            hub.vehicles.sort(key=lambda x :x.get_rental_price(),reverse=True)
+        for hub in self.hubs:
+            print(hub.hub_name)
+            for v in hub.vehicles:
+                print(v)
+
+
         
 
 
