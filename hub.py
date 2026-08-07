@@ -1,4 +1,5 @@
+from dataclasses import dataclass,field
+@dataclass
 class Hub:
-    def __init__(self,hub_name):
-        self.hub_name=hub_name
-        self.vehicles=[]
+   hub_name:str          
+   vehicles:list=field(default_factory=list)     

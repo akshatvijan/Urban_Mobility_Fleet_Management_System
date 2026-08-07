@@ -31,6 +31,8 @@ class Fleet:
     def show_hubs(self):
         for hub in self.hubs:
             print(hub.hub_name)
+
+            
     def show_vehicles(self,hub_name):
         for hub in self.hubs:
             if hub.hub_name==hub_name:
