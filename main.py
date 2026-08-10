@@ -30,6 +30,8 @@ if __name__=="__main__":
     f1.alphabatic_sorting()
     string=input("Enter the choice of sorting (battery,fare)")
     f1.advance_sorting(string)
+    f1.save_to_csv("data.csv")
+    f1.load_csv("data.csv")
 
  
   

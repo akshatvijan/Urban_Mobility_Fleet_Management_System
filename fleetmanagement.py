@@ -1,4 +1,5 @@
 from hub import Hub
+import csv
 from electricCar import electricCar
 from electricScooter import electricScooter
 from collections import defaultdict
@@ -130,6 +131,50 @@ class Fleet:
             for v in hub.vehicles:
                 print(v)
 
+
+    def save_to_csv(self,filename):
+        with open(filename,"w") as f:
+            writer=csv.writer(f)
+            writer.writerow(['hub','type','vehicle_id','model','battery','extra'])
+            for hub in self.hubs:
+                for v in hub.vehicles:
+                    if isinstance(v,electricCar):
+                        writer.writerow([hub.hub_name,'car',v.vehicle_id,v.model,v.get_battery_percentage(),v.seating_capacity])
+                    elif isinstance(v,electricScooter):
+                        writer.writerow([hub.hub_name,'scooter',v.vehicle_id,v.model,v.get_battery_percentage(),v.max_speed_limit])
+
+
+        print("Data uploaded")
+
+
+    def load_csv(self, filename):
+        with open(filename, "r") as f:
+            reader = csv.DictReader(f)
+
+            for r in reader:
+
+                hub_name = r["hub"]
+
+                if r["type"] == "car":
+                    vehicle = electricCar(
+                        r["vehicle_id"],
+                        r["model"],
+                        int(r["battery"]),
+                        int(r["extra"])
+                    )
+
+                elif r["type"] == "scooter":
+                    vehicle = electricScooter(
+                        r["vehicle_id"],
+                        r["model"],
+                        int(r["battery"]),
+                        int(r["extra"])
+                    )
+
+                self.add_hub(hub_name)
+                self.add_vehicle(hub_name, vehicle)
+
+        print("Data loaded")
 
         
 
