@@ -1,0 +1,70 @@
+{
+    "hubs": [
+        {
+            "hubname": "Airport",
+            "vehicles": [
+                {
+                    "type": "Scooter",
+                    "vehicle_id": 10,
+                    "model": "cs202",
+                    "batter": 90,
+                    "extra": 100
+                },
+                {
+                    "type": "Car",
+                    "vehicle_id": 201,
+                    "model": "car202",
+                    "batter": 80,
+                    "extra": 4
+                },
+                {
+                    "type": "Car",
+                    "vehicle_id": 203,
+                    "model": "car202",
+                    "batter": 80,
+                    "extra": 4
+                },
+                {
+                    "type": "Scooter",
+                    "vehicle_id": "10",
+                    "model": "cs202",
+                    "batter": 90,
+                    "extra": 100
+                },
+                {
+                    "type": "Car",
+                    "vehicle_id": "201",
+                    "model": "car202",
+                    "batter": 80,
+                    "extra": 4
+                },
+                {
+                    "type": "Car",
+                    "vehicle_id": "203",
+                    "model": "car202",
+                    "batter": 80,
+                    "extra": 4
+                }
+            ]
+        },
+        {
+            "hubname": "Bus-Stand",
+            "vehicles": [
+                {
+                    "type": "Scooter",
+                    "vehicle_id": 10,
+                    "model": "cs202",
+                    "batter": 90,
+                    "extra": 100
+                },
+                {
+                    "type": "Scooter",
+                    "vehicle_id": "10",
+                    "model": "cs202",
+                    "batter": 90,
+                    "extra": 100
+                }
+            ]
+        }
+    ]
+}

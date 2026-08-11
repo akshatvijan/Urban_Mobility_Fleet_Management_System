@@ -1,5 +1,6 @@
 from hub import Hub
 import csv
+import json
 from electricCar import electricCar
 from electricScooter import electricScooter
 from collections import defaultdict
@@ -150,9 +151,9 @@ class Fleet:
     def load_csv(self, filename):
         with open(filename, "r") as f:
             reader = csv.DictReader(f)
-
+            
             for r in reader:
-
+    
                 hub_name = r["hub"]
 
                 if r["type"] == "car":
@@ -176,9 +177,46 @@ class Fleet:
 
         print("Data loaded")
 
+    def save_json(self,filename):
+        data={
+            "hubs":[]
+        }
+
         
 
+        for hub in self.hubs:
+            hub_data={
+                "hubname":hub.hub_name,
+                "vehicles":[]
+            }
+            for v in hub.vehicles:
+               
+                if isinstance(v,electricCar):
+                    vehicle_data={
+                        'type':'Car',
+                        'vehicle_id':v.vehicle_id,
+                        'model':v.model,
+                        'batter':v.get_battery_percentage(),
+                        'extra':v.seating_capacity
+                    }
+                elif isinstance(v,electricScooter):
+                    vehicle_data={
+                        'type':'Scooter',
+                        'vehicle_id':v.vehicle_id,
+                        'model':v.model,
+                        'batter':v.get_battery_percentage(),
+                        'extra':v.max_speed_limit
+                    }
+                hub_data["vehicles"].append(vehicle_data)
+            data["hubs"].append(hub_data)
+
+        with open(filename,'w') as f:
+            json.dump(data,f,indent=4)
+            print('data uploaded')
 
             
 
-        
+
+                
+
+            

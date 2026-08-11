@@ -32,6 +32,7 @@ if __name__=="__main__":
     f1.advance_sorting(string)
     f1.save_to_csv("data.csv")
     f1.load_csv("data.csv")
+    f1.save_json("fleet.json")
 
  
   
