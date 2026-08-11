@@ -1,0 +1,5 @@
+hub,type,vehicle_id,model,battery,extra
+Airport,scooter,10,cs202,90,100
+Airport,car,201,car202,80,4
+Airport,car,203,car202,80,4
+Bus-Stand,scooter,10,cs202,90,100

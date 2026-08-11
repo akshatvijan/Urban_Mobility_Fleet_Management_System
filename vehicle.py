@@ -1,8 +1,9 @@
-class Vehicle:
+from abc import ABC, abstractmethod
+class Vehicle(ABC):
     def __init__(self,vehicle_id,model,battery_percentage):
         self.vehicle_id=vehicle_id
         self.model=model
-        self.__battery_percentage=battery_percentage
+        self.__battery_percentage=battery_percentage 
         self.__maintenance_status="Available"
         self.__rental_price=0
         
@@ -31,3 +32,18 @@ class Vehicle:
 #setter for rental price         
     def set_rental_price(self,rent):
         self.__rental_price=rent
+
+#abstractmethod    
+    @abstractmethod
+    def calculate_trip_cost(self,distance):
+        pass
+
+#eq function
+
+    def __eq__(self,other):
+        return self.vehicle_id==other.vehicle_id
+
+    def __str__(self):
+        return (f"model {self.model} id {self.vehicle_id} battery percentage {self.get_battery_percentage()}")
+    
+    
