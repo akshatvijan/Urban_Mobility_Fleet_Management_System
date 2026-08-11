@@ -5,43 +5,15 @@
             "vehicles": [
                 {
                     "type": "Scooter",
-                    "vehicle_id": 10,
-                    "model": "cs202",
+                    "vehicle_id": "s12",
+                    "model": "s-302",
                     "batter": 90,
-                    "extra": 100
+                    "extra": 80
                 },
                 {
                     "type": "Car",
-                    "vehicle_id": 201,
-                    "model": "car202",
-                    "batter": 80,
-                    "extra": 4
-                },
-                {
-                    "type": "Car",
-                    "vehicle_id": 203,
-                    "model": "car202",
-                    "batter": 80,
-                    "extra": 4
-                },
-                {
-                    "type": "Scooter",
-                    "vehicle_id": "10",
-                    "model": "cs202",
-                    "batter": 90,
-                    "extra": 100
-                },
-                {
-                    "type": "Car",
-                    "vehicle_id": "201",
-                    "model": "car202",
-                    "batter": 80,
-                    "extra": 4
-                },
-                {
-                    "type": "Car",
-                    "vehicle_id": "203",
-                    "model": "car202",
+                    "vehicle_id": "c21",
+                    "model": "car-200",
                     "batter": 80,
                     "extra": 4
                 }
@@ -51,17 +23,17 @@
             "hubname": "Bus-Stand",
             "vehicles": [
                 {
-                    "type": "Scooter",
-                    "vehicle_id": 10,
-                    "model": "cs202",
+                    "type": "Car",
+                    "vehicle_id": "c22",
+                    "model": "car-300",
                     "batter": 90,
-                    "extra": 100
+                    "extra": 4
                 },
                 {
                     "type": "Scooter",
-                    "vehicle_id": "10",
-                    "model": "cs202",
-                    "batter": 90,
+                    "vehicle_id": "s13",
+                    "model": "s-303",
+                    "batter": 81,
                     "extra": 100
                 }
             ]
