@@ -2,6 +2,8 @@ import pytest
 from fleetmanagement import Fleet
 from electricCar import electricCar
 from electricScooter import electricScooter
+
+
 def test_hub():
     fleet=Fleet()
     fleet.add_hub("airport")

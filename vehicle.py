@@ -36,7 +36,7 @@ class Vehicle(ABC):
 #abstractmethod    
     @abstractmethod
     def calculate_trip_cost(self,distance):
-        pass
+        pass     
 
 #eq function
 

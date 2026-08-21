@@ -27,7 +27,8 @@ class Fleet:
                 return
                else:
                 hub.vehicles.append(vehicle)
-                return      
+                return 
+        raise ValueError("Hub not found")     
         print("Hub not found")
 
 
@@ -74,6 +75,7 @@ class Fleet:
             elif isinstance(v,electricScooter):
                 category['scooter'].append(v)
         print(category)
+        return category
 
 
     def Fleet_Analytics(self):
@@ -103,6 +105,7 @@ class Fleet:
             for v in hub.vehicles:
                
                 print(v)
+            
 
 
     def advance_sorting(self,choice):
